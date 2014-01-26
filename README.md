@@ -1,4 +1,4 @@
-SeedForLazyLoading
+SlickGridTrial
 ==================
 
-It is an project base which based on angularjs and some lazy loading technologies
+It is an project base which based on angularjs and SlickGrid technologies
