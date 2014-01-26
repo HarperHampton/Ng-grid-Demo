@@ -1,0 +1,29 @@
+{
+  "name": "GridTrial",
+  "version": "1.0.0",
+  "description": "A trial for showing how Grid works",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/leftstick/SlickGridTrial.git"
+  },
+  "keywords": [
+    "PeerJS",
+    "chatroom",
+    "webRTC"
+  ],
+  "author": "howard.zuo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leftstick/SlickGridTrial.git/issues"
+  },
+  "homepage": "https://github.com/leftstick/SlickGridTrial.git",
+  "devDependencies": {
+    "grunt": "0.4.2",
+    "grunt-contrib-clean": "0.5.0",
+    "grunt-template": "0.2.2",
+    "grunt-contrib-copy": "0.5.0",
+    "grunt-contrib-watch": "0.5.3",
+    "grunt-contrib-connect": "0.6.0",
+    "grunt-contrib-concat": "0.3.0"
+  }
+}
