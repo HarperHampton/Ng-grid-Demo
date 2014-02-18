@@ -10,67 +10,47 @@ module.exports = function(grunt) {
                 }
             }
         },
-        uglify: {
-            dist: {
-                files: {
-                    'build/libs/all.min.js': ['src/js/CGrid.js', 'src/js/*.js']
-                }
-            }
-        },
-        cssmin: {
-            dist: {
-                files: {
-                    'build/css/CGrid.min.css': ['src/**/*.css']
-                }
-            }
-        },
         copy: {
             dev: {
                 files: [{
                     expand: true,
                     cwd: 'bower_components/',
-                    src: ['underscore/underscore.js', 'jquery/jquery.js', 'jquery.event.drag-drop/event.{drag,drop}/jquery.event.{drag,drop}.js', 'slickgrid/slick.core.js', 'slickgrid/slick.grid.js', 'angular/angular.js', 'angular-route/angular-route.js'],
+                    src: ['underscore/underscore.js', 'jquery/jquery.js', 'angular/angular.js', 'angular-route/angular-route.js', 'ng-grid/ng-grid-2.0.8.debug.js'],
                     dest: 'build/libs/',
                     flatten: true
                 }, {
                     expand: true,
                     cwd: 'bower_components/',
-                    src: ['slickgrid/slick.grid.css', 'slickgrid/css/smoothness/jquery-ui-1.8.16.custom.css'],
+                    src: ['ng-grid/ng-grid.css', 'jquery.ui/themes/base/jquery.ui.theme.css'],
                     dest: 'build/css/',
                     flatten: true
                 }, {
                     expand: true,
+                    cwd: 'bower_components/jquery.ui/themes/base/',
+                    src: ['images/*'],
+                    dest: 'build/css/'
+                }, {
+                    expand: true,
                     cwd: 'bower_components/',
-                    src: ['slickgrid/css/smoothness/images/*'],
-                    dest: 'build/css/images/',
+                    src: ['bootstrap/dist/js/bootstrap.js'],
+                    dest: 'build/libs/',
                     flatten: true
+                }, {
+                    expand: true,
+                    cwd: 'bower_components/bootstrap/dist/css/',
+                    src: ['bootstrap.css', 'bootstrap-theme.css'],
+                    dest: 'build/css/',
+                    flatten: true
+                }, {
+                    expand: true,
+                    cwd: 'bower_components/bootstrap/dist/',
+                    src: ['fonts/*'],
+                    dest: 'build/'
                 }, {
                     expand: true,
                     cwd: 'src/',
-                    src: ['css/*'],
-                    dest: 'build/css/',
-                    flatten: true
-                }]
-            },
-            dist: {
-                files: [{
-                    expand: true,
-                    cwd: 'bower_components/',
-                    src: ['underscore/underscore-min.js', 'underscore/underscore-min.map', 'jquery/jquery.min.js', 'jquery/jquery.min.map', 'jquery.event.drag-drop/event.{drag,drop}/jquery.event.{drag,drop}.js', 'slickgrid/slick.core.js', 'slickgrid/slick.grid.js', 'angular/angular.min.js', 'angular/angular.min.js.map', 'angular-route/angular-route.min.js', 'angular-route/angular-route.min.js.map'],
-                    dest: 'build/libs/',
-                    flatten: true
-                }, {
-                    expand: true,
-                    cwd: 'bower_components/',
-                    src: ['slickgrid/slick.grid.css', 'slickgrid/css/smoothness/jquery-ui-1.8.16.custom.css'],
-                    dest: 'build/css/',
-                    flatten: true
-                }, {
-                    expand: true,
-                    cwd: 'bower_components/',
-                    src: ['slickgrid/css/smoothness/images/*'],
-                    dest: 'build/css/images/',
-                    flatten: true
+                    src: ['css/*', 'data/*'],
+                    dest: 'build/'
                 }]
             }
         },
@@ -78,23 +58,8 @@ module.exports = function(grunt) {
             dev: {
                 options: {
                     data: {
-                        scripts: ['libs/underscore.js', 'libs/jquery.js', 'libs/jquery.event.drag.js', 'libs/jquery.event.drop.js', 'libs/slick.core.js', 'libs/slick.grid.js', 'libs/angular.js', 'libs/angular-route.js', 'libs/all.js'],
-                        csss: ['css/slick.grid.css', 'css/jquery-ui-1.8.16.custom.css', 'css/CGrid.css']
-                    }
-                },
-                files: [{
-                    expand: true,
-                    cwd: 'src/',
-                    src: ['**/*.tpl'],
-                    dest: 'build/',
-                    ext: '.html'
-                }]
-            },
-            dist: {
-                options: {
-                    data: {
-                        scripts: ['libs/underscore-min.js', 'libs/jquery.min.js', 'libs/jquery.event.drag.js', 'libs/jquery.event.drop.js', 'libs/slick.core.js', 'libs/slick.grid.js', 'libs/angular.min.js', 'libs/angular-route.min.js', 'libs/all.min.js'],
-                        csss: ['css/slick.grid.css', 'css/jquery-ui-1.8.16.custom.css', 'css/CGrid.min.css']
+                        scripts: ['libs/underscore.js', 'libs/jquery.js', 'libs/bootstrap.js', 'libs/angular.js', 'libs/angular-route.js', 'libs/ng-grid-2.0.8.debug.js', 'libs/all.js'],
+                        csss: ['css/bootstrap.css', 'css/bootstrap-theme.css', 'css/ng-grid.css', 'css/jquery.ui.theme.css', 'css/CGrid.css', ]
                     }
                 },
                 files: [{
@@ -132,10 +97,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-cssmin');
 
     grunt.registerTask('default', ['clean:all', 'concat:dev', 'copy:dev', 'template:dev', 'connect:dev', 'watch:dev']);
 
-    grunt.registerTask('dist', ['clean:all', 'uglify:dist', 'cssmin:dist', 'copy:dist', 'template:dist']);
 };

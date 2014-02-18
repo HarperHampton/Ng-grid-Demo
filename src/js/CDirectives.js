@@ -1,58 +1,63 @@
 /**
- * Directive, c-slick.
+ * Directive, c-infoswitch.
  */
-CGrid.directive('cSlick', [
+CGrid.directive('cInfoswitch', ['Data',
 
-    function() {
+    function(Data) {
         return {
-            restrict: 'E',
-            template: '<div style="width:600px;height:500px;"></div>',
+            restrict: 'A',
             link: function(scope, element, attrs, controller) {
-                var grid;
-                var columns = [{
-                    id: "title",
-                    name: "Title",
-                    field: "title"
-                }, {
-                    id: "duration",
-                    name: "Duration",
-                    field: "duration"
-                }, {
-                    id: "%",
-                    name: "% Complete",
-                    field: "percentComplete"
-                }, {
-                    id: "start",
-                    name: "Start",
-                    field: "start"
-                }, {
-                    id: "finish",
-                    name: "Finish",
-                    field: "finish"
-                }, {
-                    id: "effort-driven",
-                    name: "Effort Driven",
-                    field: "effortDriven"
-                }];
 
-                var options = {
-                    enableCellNavigation: true,
-                    enableColumnReorder: false
+                var findTabFromLocation = function(location) {
+                    var index = location.indexOf("#/");
+                    if (index < 0)
+                        return;
+                    return location.substr(index);
                 };
 
-                var data = [];
-                for (var i = 0; i < 500; i++) {
-                    data[i] = {
-                        title: "Task " + i,
-                        duration: "5 days",
-                        percentComplete: Math.round(Math.random() * 100),
-                        start: "01/01/2009",
-                        finish: "01/05/2009",
-                        effortDriven: (i % 5 === 0)
-                    };
-                }
+                scope.$on('$locationChangeSuccess', function(event, newLoc, oldLoc) {
+                    var tab = findTabFromLocation(newLoc);
+                    if (!tab) {
+                        return;
+                    }
+                    var actived = element.find("li a[href=\"" + tab + "\"]");
+                    actived.parent().addClass('active');
+                    actived.parent().siblings().removeClass('active');
 
-                grid = new Slick.Grid(element.find('div'), data, columns, options);
+                    var buttons = $('.panel-footer button');
+                    buttons.removeClass('active');
+                    buttons.first().addClass('active');
+                    Data.setCount(buttons.first().text());
+                });
+            }
+        };
+    }
+]);
+
+
+/**
+ * Directive, c-pagesize.
+ */
+CGrid.directive('cPagesize', ['Data', '$rootScope',
+
+    function(Data, $rootScope) {
+        return {
+            restrict: 'A',
+            link: function(scope, element, attrs, controller) {
+                $rootScope.totalCount = 100;
+
+                element.find('.btn-group button').on('click', function(e) {
+                    var _this = $(this);
+                    if (_this.hasClass('active')) {
+                        return;
+                    }
+
+                    _this.addClass('active');
+                    _this.siblings().removeClass('active');
+                    Data.setCount(_this.text());
+                    $rootScope.totalCount = _this.text();
+                    $rootScope.$digest();
+                });
             }
         };
     }

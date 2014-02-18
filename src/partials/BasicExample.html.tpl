@@ -1,1 +1,0 @@
-<c-slick></c-slick>

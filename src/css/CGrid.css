@@ -1,0 +1,18 @@
+.center{
+    width: 900px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.gridStyle {
+    border: 1px solid rgb(212,212,212);
+    height: 500px;
+}
+.green {
+    background-color: green;
+    color: white;
+}
+
+.onlyBlock{
+    height: 500px;
+}
