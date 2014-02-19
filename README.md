@@ -58,7 +58,7 @@ Install [Livereload](http://livereload.com/), refer to [Installation Guide](http
 
 #### Git configuration
 
-Run following command in Git Bash and the root folder of GridTrial project:
+Run following command in Git Bash and the root folder of Ng-grid-Demonstrate project:
 
 ```shell
 git config --local user.name "<name>"
