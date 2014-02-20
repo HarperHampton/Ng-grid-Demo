@@ -122,7 +122,9 @@ Run following command in Git Bash:
 bower install
 ```
 
-#### Fire up this demo app with Gulp
+#### Fire up this demo app
+
+##### With Gulp
 
 Run following command in Git Bash:
 
@@ -130,7 +132,7 @@ Run following command in Git Bash:
 gulp
 ```
 
-#### Fire up this demo app with Grunt
+##### With Grunt
 
 Run following command in Git Bash:
 
