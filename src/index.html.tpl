@@ -6,7 +6,6 @@
     <% _.forEach(csss, function(css) { %><link rel="stylesheet" href="<%- css %>"><%- "\n" %><% }); %>
 </head>
 <body>
-    
     <div class="panel panel-default">
         <div class="panel-heading">
             <ul class="nav nav-pills" c-infoswitch>

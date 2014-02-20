@@ -15,7 +15,7 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     cwd: 'bower_components/',
-                    src: ['underscore/underscore.js', 'jquery/jquery.js', 'angular/angular.js', 'angular-route/angular-route.js', 'ng-grid/ng-grid-2.0.8.debug.js'],
+                    src: ['underscore/underscore.js', 'jquery/jquery.js', 'angular/angular.js', 'angular-route/angular-route.js', 'ng-grid/ng-grid-2.0.7.debug.js'],
                     dest: 'build/libs/',
                     flatten: true
                 }, {
@@ -58,7 +58,7 @@ module.exports = function(grunt) {
             dev: {
                 options: {
                     data: {
-                        scripts: ['libs/underscore.js', 'libs/jquery.js', 'libs/bootstrap.js', 'libs/angular.js', 'libs/angular-route.js', 'libs/ng-grid-2.0.8.debug.js', 'libs/all.js'],
+                        scripts: ['libs/underscore.js', 'libs/jquery.js', 'libs/bootstrap.js', 'libs/angular.js', 'libs/angular-route.js', 'libs/ng-grid-2.0.7.debug.js', 'libs/all.js'],
                         csss: ['css/bootstrap.css', 'css/bootstrap-theme.css', 'css/ng-grid.css', 'css/jquery.ui.theme.css', 'css/CGrid.css', ]
                     }
                 },
