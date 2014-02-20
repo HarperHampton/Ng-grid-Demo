@@ -3,6 +3,8 @@ Ng-grid Demo
 
 This is a project to show how `ng-grid` works with `AngularJS`, and its performance.
 
+`BTW`, there are two task-runner installed, `Grunt` and `Gulp`. You can choose anyone of them to get this application up.
+
 ## Getting Started(development)
 
 This project requires stable [Node.js](http://nodejs.org/) versions `>= 0.8.0`, the [Node.js](http://nodejs.org/) package manager as development environment. Please be aware of that.
@@ -86,15 +88,17 @@ alias pull='git pull --release'
 alias push='git push'
 ```
 
-#### Install Gulp globally
+#### Install Gulp/Grunt globally
 
 Run following command in Git Bash:
 
 ```shell
 npm install -g gulp
+npm install -g grunt-cli
+npm install -g grunt
 ```
 
-##### Install Gulp plugins
+##### Install Gulp/Grunt plugins
 
 Run following command in Git Bash:
 
@@ -116,4 +120,20 @@ Run following command in Git Bash:
 
 ```shell
 bower install
+```
+
+#### Fire up this demo app with Gulp
+
+Run following command in Git Bash:
+
+```shell
+gulp
+```
+
+#### Fire up this demo app with Grunt
+
+Run following command in Git Bash:
+
+```shell
+grunt
 ```
